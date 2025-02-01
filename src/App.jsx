@@ -7,6 +7,8 @@ import Recetas from './pages/Recetas'
 import Productos from './pages/Productos'
 import Usuarios from './pages/Usuarios'
 import { useEffect, useState } from "react";
+import DetallesRecetas from './pages/DetallesRecetas'
+import DetallesProductos from './pages/DetallesProductos'
 
 const App = () => {
   return (
@@ -15,10 +17,12 @@ const App = () => {
 
     <Routes>
         <Route path='/' element={<Inicio/>}/>
-        <Route path='inicio' element={<Inicio/>}/>
-        <Route path='productos' element={<Productos/>}/>
-        <Route path='recetas' element={<Recetas/>}/>
-        <Route path='usuarios' element={<Usuarios/>}/>
+        <Route path='/inicio' element={<Inicio/>}/>
+        <Route path='/productos' element={<Productos/>}/>
+        <Route path='/recetas' element={<Recetas/>}/>
+        <Route path='/usuarios' element={<Usuarios/>}/>
+        <Route path='/detalles/:id' element={<DetallesRecetas/>}/>
+        <Route path='/detallesp/:id' element={<DetallesProductos/>}/>
         <Route path='*' element={<Inicio/>}/>
     </Routes>
 

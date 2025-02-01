@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 const API = 'https://dummyjson.com/products/';
 const Productos = () => {
     const [datos, setDatos] = useState([])
@@ -22,8 +23,8 @@ const Productos = () => {
             <div className="row">
                 {datos && datos.map((item, index) => (
                     <>
-                    <div className="col-md-4 col-lg-3 mb-4">
-                        <div key={index} className="card h-100">
+                    <div key={index} className="col-md-4 col-lg-3 mb-4">
+                        <div className="card h-100">
                             <div className="card-header">
                             <img src={item.thumbnail} className="card-img-top" alt="..." />
                             </div>
@@ -34,10 +35,11 @@ const Productos = () => {
                             </div>
                             <div className="card-footer text-center">
                                 <a href="#" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#${item.id}`}>ver detalles</a>
+                                <Link to={`/detallesp/${item.id}`} href="#" className="btn btn-info">ver detalles</Link>
                             </div>
                         </div>
                     </div>
-
+                   
 
   <div className="modal fade" id={item.id} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div className="modal-dialog modal-lg">
@@ -63,6 +65,7 @@ const Productos = () => {
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="button" className="btn btn-primary">Save changes</button>
+          
         </div>
     </div>
   </div>
